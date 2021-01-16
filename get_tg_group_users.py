@@ -18,9 +18,9 @@ async def main(dialog_name: str, path_to_csv: str):
 
     with open(path_to_csv, 'w') as csv_file:
         writer = csv.writer(csv_file, delimiter=',')
-        writer.writerow(['id', 'first_name', 'last_name', 'username'])
+        writer.writerow(['id', 'first_name', 'last_name', 'username', 'phone', 'is_bot', 'is_deleted'])
         for u in participants:
-            writer.writerow([u.id, u.first_name, u.last_name, u.username])
+            writer.writerow([u.id, u.first_name, u.last_name, u.username, u.phone, u.bot, u.deleted])
 
 if __name__ == '__main__':
     chat_normalized_name = chat_to_look_for.replace(' ', '_').lower()
